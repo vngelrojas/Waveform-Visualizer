@@ -20,7 +20,8 @@ WaveformVisAudioProcessorEditor::WaveformVisAudioProcessorEditor (WaveformVisAud
     setSize (400, 300);
 
     waveZoom.setRange(32.0, 1024.0, 1.0);
-    waveZoom.setSliderStyle(juce::Slider::SliderStyle::LinearBarVertical);
+    waveZoom.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    waveZoom.setTextBoxStyle(Slider::TextBoxBelow,true,50,20);
     addAndMakeVisible(waveZoom);
 }
 
