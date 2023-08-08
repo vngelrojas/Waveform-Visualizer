@@ -19,9 +19,11 @@ WaveformVisAudioProcessor::WaveformVisAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),waveViewer(1)
 #endif
 {
+    waveViewer.setRepaintRate(30);
+    waveViewer.setBufferSize(256);
 }
 
 WaveformVisAudioProcessor::~WaveformVisAudioProcessor()
