@@ -23,6 +23,11 @@ WaveformVisAudioProcessorEditor::WaveformVisAudioProcessorEditor (WaveformVisAud
     waveZoom.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
     waveZoom.setTextBoxStyle(Slider::TextBoxBelow,true,50,20);
     addAndMakeVisible(waveZoom);
+
+    waveZoom.onValueChange = [this]()
+    {
+        audioProcessor.waveViewer.setBufferSize(waveZoom.getValue());
+    };
 }
 
 WaveformVisAudioProcessorEditor::~WaveformVisAudioProcessorEditor()
