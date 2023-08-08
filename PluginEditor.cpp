@@ -18,6 +18,8 @@ WaveformVisAudioProcessorEditor::WaveformVisAudioProcessorEditor (WaveformVisAud
     addAndMakeVisible(audioProcessor.waveViewer);
     audioProcessor.waveViewer.setColours(juce::Colours::black, juce::Colours::whitesmoke.withAlpha(0.5f));
     setSize (400, 300);
+    waveZoom.setRange(32.0, 1024.0, 1.0);
+    addAndMakeVisible(waveZoom);
 }
 
 WaveformVisAudioProcessorEditor::~WaveformVisAudioProcessorEditor()
@@ -40,4 +42,5 @@ void WaveformVisAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     audioProcessor.waveViewer.setBounds(getLocalBounds().withSizeKeepingCentre(getWidth() * 0.5, getHeight() * 0.5));
+    waveZoom.setBounds(audioProcessor.waveViewer.getX() + audioProcessor.waveViewer.getWidth(), audioProcessor.waveViewer.getY(), 128, audioProcessor.waveViewer.getHeight());
 }
