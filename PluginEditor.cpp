@@ -18,7 +18,9 @@ WaveformVisAudioProcessorEditor::WaveformVisAudioProcessorEditor (WaveformVisAud
     addAndMakeVisible(audioProcessor.waveViewer);
     audioProcessor.waveViewer.setColours(juce::Colours::black, juce::Colours::whitesmoke.withAlpha(0.5f));
     setSize (400, 300);
+
     waveZoom.setRange(32.0, 1024.0, 1.0);
+    waveZoom.setSliderStyle(juce::Slider::SliderStyle::LinearBarVertical);
     addAndMakeVisible(waveZoom);
 }
 
